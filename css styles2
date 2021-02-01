@@ -1,0 +1,20 @@
+body {
+    background: url("../img/carbon.jpg");
+    background-attachment: fixed;
+}
+
+#logo {
+    background: black;
+}
+
+#menu ul li:hover {
+    background: black;
+}
+
+.buttonm {
+    background: black;
+}
+
+form input[type="submit"] {
+    background: black;
+}
