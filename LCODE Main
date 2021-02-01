@@ -1,0 +1,148 @@
+'use strict'
+window.addEventListener('load', () => {
+
+
+    if (window.location.href.indexOf("Index") > -1) {
+        $(document).ready(function() {
+            $(function() {
+                $('.bxslider').bxSlider({
+                    mode: 'fade',
+                    captions: true,
+                    slideWidth: 1200
+                });
+            });
+        });
+    }
+
+
+
+
+    if (window.location.href.indexOf("Index") > -1) {
+        var posts = [{
+
+                title: 'prueba de titulo',
+                date: moment().format("dddd DD [de] MMMM [del] YYYY"),
+                content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lorem eros, congue eget bibendum sed, rhoncus nec turpis. Aenean gravida tortor sit amet dui egestas hendrerit. Donec maximus dolor et diam sodales, vestibulum iaculis quam malesuada. Sed fermentum quis arcu a venenatis. Curabitur non vulputate lorem, at porta risus. Sed rutrum, leo tincidunt interdum laoreet, sapien turpis dignissim sapien, vel facilisis velit purus id tellus. Quisque condimentum ac odio consequat commodo. Proin feugiat, mauris ut fermentum elementum, mi magna venenatis sapien, rhoncus iaculis lectus turpis non elit. Cras porttitor, nibh nec imperdiet vulputate, sem turpis vehicula felis, tempus molestie erat risus sed purus. Praesent id venenatis leo. Curabitur vitae diam odio. Nunc vel lacus at massa auctor maximus. Maecenas ullamcorper felis id dignissim suscipit."
+
+            },
+            {
+                title: 'prueba de titulo',
+                date: moment().format("dddd DD [de] MMMM [del] YYYY"),
+                content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lorem eros, congue eget bibendum sed, rhoncus nec turpis. Aenean gravida tortor sit amet dui egestas hendrerit. Donec maximus dolor et diam sodales, vestibulum iaculis quam malesuada. Sed fermentum quis arcu a venenatis. Curabitur non vulputate lorem, at porta risus. Sed rutrum, leo tincidunt interdum laoreet, sapien turpis dignissim sapien, vel facilisis velit purus id tellus. Quisque condimentum ac odio consequat commodo. Proin feugiat, mauris ut fermentum elementum, mi magna venenatis sapien, rhoncus iaculis lectus turpis non elit. Cras porttitor, nibh nec imperdiet vulputate, sem turpis vehicula felis, tempus molestie erat risus sed purus. Praesent id venenatis leo. Curabitur vitae diam odio. Nunc vel lacus at massa auctor maximus. Maecenas ullamcorper felis id dignissim suscipit."
+            },
+            {
+                title: 'prueba de titulo',
+                date: moment().format("dddd DD [de] MMMM [del] YYYY"),
+                content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lorem eros, congue eget bibendum sed, rhoncus nec turpis. Aenean gravida tortor sit amet dui egestas hendrerit. Donec maximus dolor et diam sodales, vestibulum iaculis quam malesuada. Sed fermentum quis arcu a venenatis. Curabitur non vulputate lorem, at porta risus. Sed rutrum, leo tincidunt interdum laoreet, sapien turpis dignissim sapien, vel facilisis velit purus id tellus. Quisque condimentum ac odio consequat commodo. Proin feugiat, mauris ut fermentum elementum, mi magna venenatis sapien, rhoncus iaculis lectus turpis non elit. Cras porttitor, nibh nec imperdiet vulputate, sem turpis vehicula felis, tempus molestie erat risus sed purus. Praesent id venenatis leo. Curabitur vitae diam odio. Nunc vel lacus at massa auctor maximus. Maecenas ullamcorper felis id dignissim suscipit."
+            },
+            {
+                title: 'prueba de titulo',
+                date: moment().format("dddd DD [de] MMMM [del] YYYY"),
+                content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lorem eros, congue eget bibendum sed, rhoncus nec turpis. Aenean gravida tortor sit amet dui egestas hendrerit. Donec maximus dolor et diam sodales, vestibulum iaculis quam malesuada. Sed fermentum quis arcu a venenatis. Curabitur non vulputate lorem, at porta risus. Sed rutrum, leo tincidunt interdum laoreet, sapien turpis dignissim sapien, vel facilisis velit purus id tellus. Quisque condimentum ac odio consequat commodo. Proin feugiat, mauris ut fermentum elementum, mi magna venenatis sapien, rhoncus iaculis lectus turpis non elit. Cras porttitor, nibh nec imperdiet vulputate, sem turpis vehicula felis, tempus molestie erat risus sed purus. Praesent id venenatis leo. Curabitur vitae diam odio. Nunc vel lacus at massa auctor maximus. Maecenas ullamcorper felis id dignissim suscipit."
+            }
+        ];
+
+
+
+        posts.forEach((item, index) => {
+            var posts = ` <article class="post">  
+        <h1>${ item.title } </h1>      
+        <span class="date" > ${item.date } </span> 
+        <p class="content" > ${item.content } </p>
+        <a href="" class="buttonm">Leer más</a>
+         </article></br></br></br>`;
+
+            $('#posts').append(posts);
+        });
+
+
+
+
+    }
+
+
+    var theme = $("#styles");
+
+    $("#greenx").click(() => {
+        theme.attr("href", "./CSS/green.css")
+    });
+    $("#redx").click(() => {
+        theme.attr("href", "./CSS/red.css")
+    });
+
+    $("#bluex").click(() => {
+        theme.attr("href", "./CSS/blue.css")
+    });
+    $("#blackx").click(() => {
+        theme.attr("href", "./CSS/black.css")
+    });
+
+
+    $(".subir").click(() => {
+
+        $("html, body").animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+
+    $("#login form").submit(function() {
+        var nameF = $("#nameF").val();
+        localStorage.setItem("Nombre", nameF);
+    });
+
+    var nameC = localStorage.getItem("Nombre");
+
+    if (nameC != null && nameC != undefined) {
+        var about_parrafo = $("#about p");
+
+        about_parrafo.html("<br><strong>Bienvenido, " + nameC + "</strong>");
+
+        about_parrafo.append("<a href='#' id='logout'>Cerrar Sesion</a>");
+
+        $("#login").hide();
+
+        $("#logout").click(function() {
+            localStorage.clear();
+            location.reload();
+        });
+    }
+
+
+
+    if (window.location.href.indexOf("About") > -1) {
+        $("#acordeon").accordion();
+        $("#Slider12").accordion();
+        $("#Slider13").accordion();
+
+
+    }
+
+    if (window.location.href.indexOf("Clock") > -1) {
+        setInterval(() => {
+            var reloj = moment().format("hh: mm: ss");
+            $("#reloj").html(reloj);
+        }), 1000;
+
+    }
+
+    if (window.location.href.indexOf("Contacto") > -1) {
+        $("form input[name='date']").datepicker({
+            dateFormat: 'dd-mm-yy'
+        });
+
+        $.validate({
+            lang: "es",
+            errorMessagePosition: "top",
+            scrollToTopOnError: true
+
+        });
+    }
+
+
+
+
+
+
+
+});
